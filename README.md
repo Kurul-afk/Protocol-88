@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Protocol-88
 
-## Getting Started
+> analogue horror project
 
-First, run the development server:
+Пет-проект на стыке веб-разработки и жанра **analogue horror** — эстетики псевдо-документальных находок, искажённых записей и «утечек» с закрытых объектов, знакомой по таким вещам, как _Local 58_ и _The Mandela Catalogue_.
+
+Protocol-88 — это веб-интерфейс, стилизованный под рассекреченный/утёкший протокол некой организации: с системными сообщениями, VHS-искажениями и атмосферой «что-то пошло не так».
+
+По механике это Q&A-опрос: пользователь проходит фиксированный набор вопросов, и по итогам ответов получает один из нескольких заранее заданных результатов, оформленный как часть общего лора проекта (например, «досье», «статус», «протокол», к которому отнесён пользователь).
+
+**🔗 Демо:** _(будет добавлено после деплоя)_
+
+## 🧩 О проекте
+
+Это личный (пет-)проект, сделанный для отработки:
+
+- фронтенд-разработки на Next.js/TypeScript;
+- нестандартной, атмосферной вёрстки и анимаций;
+- сторителлинга через интерфейс, а не через текст напрямую.
+
+Проект находится в стадии активной разработки — многое может меняться.
+
+## ✨ Как это работает
+
+1. Пользователь запускает опрос и последовательно отвечает на вопросы.
+2. Ответы определяют, к какому из заранее заданных исходов относится пользователь.
+3. По завершении показывается экран результата, оформленный в общей стилистике проекта.
+4. Опрос можно пройти заново.
+
+## 🛠️ Стек технологий
+
+- [Next.js](https://nextjs.org/) — React-фреймворк
+- [TypeScript](https://www.typescriptlang.org/)
+- [ESLint](https://eslint.org/) — линтинг кода
+- PostCSS
+
+## 📁 Структура проекта
+
+```
+Protocol-88/
+├── public/          # статические файлы (изображения, шрифты и т.д.)
+├── src/
+│   └── app/         # страницы и роуты (Next.js App Router)
+├── eslint.config.mjs
+├── next.config.ts
+├── postcss.config.mjs
+├── tsconfig.json
+└── package.json
+```
+
+## 🚀 Установка и запуск
+
+Клонируйте репозиторий:
+
+```bash
+git clone https://github.com/Kurul-afk/Protocol-88.git
+cd Protocol-88
+```
+
+Установите зависимости:
+
+```bash
+npm install
+```
+
+Запустите dev-сервер:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Откройте [http://localhost:3000](http://localhost:3000) в браузере — проект автоматически перезагружается при изменении файлов в `src/app`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📌 Статус
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+🚧 В разработке.
 
-## Learn More
+- [x] Базовая структура проекта
+- [ ] Логика опроса и подсчёт результата
+- [ ] Экраны результатов
+- [ ] Деплой (Vercel)
+- [ ] Скриншоты / демо в README
 
-To learn more about Next.js, take a look at the following resources:
+Функциональность, контент и визуальный стиль могут значительно измениться в процессе работы.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📄 Лицензия
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Проект создан в учебных/некоммерческих целях. Лицензия не определена — при необходимости уточните у автора.
 
-## Deploy on Vercel
+## 👤 Автор
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[Kurul-afk](https://github.com/Kurul-afk)
