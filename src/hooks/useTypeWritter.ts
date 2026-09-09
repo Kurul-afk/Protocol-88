@@ -12,6 +12,15 @@ interface UseTypewriterOptions {
   onLineComplete?: () => void;
 }
 
+/**
+ * Печатает строки по одной, с эффектом печатной машинки.
+ * Начальное состояние (typedLines/activeLine/isDone) не сбрасывается внутри
+ * хука при смене `lines` — если набор строк меняется в течение жизни
+ * компонента, компонент-потребитель должен размонтироваться/пересоздаваться
+ * через `key` (например `key={lines.join("|")}`), как это уже сделано для
+ * useQuestionTimer. Так весь стейт гарантированно стартует с нуля, без
+ * ручного setState в эффекте.
+ */
 export function useTypewriter(
   lines: string[],
   {
@@ -29,16 +38,14 @@ export function useTypewriter(
     undefined,
   );
 
+  useEffect(() => {
+    onCharRef.current = onChar;
+    onLineCompleteRef.current = onLineComplete;
+  }, [onChar, onLineComplete]);
+
   const onCharRef = useRef(onChar);
   const onLineCompleteRef = useRef(onLineComplete);
-  onCharRef.current = onChar;
-  onLineCompleteRef.current = onLineComplete;
-
   useEffect(() => {
-    setTypedLines([]);
-    setActiveLine(-1);
-    setIsDone(false);
-
     const prefersReducedMotion =
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;

@@ -15,7 +15,10 @@ export function useQuestionTimer(
   enabled: boolean = true,
 ) {
   const onTimeoutRef = useRef(onTimeout);
-  onTimeoutRef.current = onTimeout;
+
+  useEffect(() => {
+    onTimeoutRef.current = onTimeout;
+  }, [onTimeout]);
 
   useEffect(() => {
     if (!enabled) return;
