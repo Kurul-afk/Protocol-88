@@ -1,0 +1,58 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Question {
+  id      String   @id @default(cuid())
+  order   Int      @unique
+  text    String
+  image   String
+  answers Answer[]
+  options Option[]
+
+  @@map("questions")
+}
+
+model Option {
+  id         String   @id @default(cuid())
+  text       String
+  weight     Int
+  order      Int
+  questionId String   @map("question_id")
+  answers    Answer[]
+  question   Question @relation(fields: [questionId], references: [id])
+
+  @@map("options")
+}
+
+model Session {
+  id            String    @id @default(cuid())
+  createdAt     DateTime  @default(now()) @map("created_at")
+  finishedAt    DateTime? @map("finished_at")
+  totalScore    Int?      @map("total_score")
+  timedOutCount Int?      @map("timed_out_count")
+  ending        String?
+  answers       Answer[]
+
+  @@map("sessions")
+}
+
+model Answer {
+  id         String   @id @default(cuid())
+  sessionId  String   @map("session_id")
+  questionId String   @map("question_id")
+  optionId   String   @map("option_id")
+  timedOut   Boolean  @default(false) @map("timed_out")
+  answeredAt DateTime @default(now()) @map("answered_at")
+  option     Option   @relation(fields: [optionId], references: [id])
+  question   Question @relation(fields: [questionId], references: [id])
+  session    Session  @relation(fields: [sessionId], references: [id])
+
+  @@unique([sessionId, questionId])
+  @@map("answers")
+}
