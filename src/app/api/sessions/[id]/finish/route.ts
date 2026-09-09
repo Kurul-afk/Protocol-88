@@ -2,7 +2,7 @@ import { resolveEnding } from "@/lib/ending";
 import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
 
-export const PORT = async (
+export const POST = async (
   _req: Request,
   { params }: { params: Promise<{ id: string }> },
 ) => {
