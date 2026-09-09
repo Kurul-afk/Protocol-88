@@ -3,7 +3,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useTypewriter } from "@/hooks/useTypeWritter";
-import { useTapeAudio } from "@/hooks/useTapeRadio";
+import { useTapeAudio } from "@/hooks/useTapeAudio";
 import { TapeButton } from "@/components/ui/TapeButton";
 import { cn } from "@/lib/utils";
 import { useEffect, useTransition } from "react";

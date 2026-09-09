@@ -1,6 +1,6 @@
 // src/app/result/page.tsx
 import { prisma } from "@/lib/prisma";
-import { ResultScreen } from "@/components/features/ResultScreen";
+import { ResultScreen } from "@/components/screens/ResultScreen";
 import { endings, resolveEnding, timeoutEnding } from "@/lib/ending";
 
 interface ResultPageProps {

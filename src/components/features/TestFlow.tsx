@@ -5,7 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { AnimatePresence } from "motion/react";
 import type { QuestionWithOptions } from "@/lib/queries";
-import { QuestionScreen } from "./QuestionScreen";
+import { QuestionScreen } from "../screens/QuestionScreen";
 
 interface TestFlowProps {
   questions: QuestionWithOptions[];

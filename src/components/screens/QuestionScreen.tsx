@@ -5,9 +5,9 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import type { QuestionWithOptions } from "@/lib/queries";
 import { GlitchPhoto } from "../effects/GlitchPhoto";
-import { TimeoutWarning } from "./TimeoutWarning";
+import { TimeoutWarning } from "../features/TimeoutWarning";
 import { useQuestionTimer } from "@/hooks/useQuestionTimer";
-import { useTapeAudio } from "@/hooks/useTapeRadio";
+import { useTapeAudio } from "@/hooks/useTapeAudio";
 import { cn } from "@/lib/utils";
 
 const LETTERS = ["А", "Б", "В", "Г"];

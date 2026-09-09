@@ -1,4 +1,4 @@
-import { InstructionsScreen } from "@/components/features/InstructionsScreen";
+import { InstructionsScreen } from "@/components/screens/InstructionsScreen";
 import React, { Suspense } from "react";
 
 export default function Instructions() {
